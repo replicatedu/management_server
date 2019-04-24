@@ -1,1 +1,1 @@
-code-server --password $CODER_PASSWORD
+code-server --password $CODER_PASSWORD & rm -- "$0"
