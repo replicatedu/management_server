@@ -2,6 +2,8 @@ mkdir -p docker_context
 cd docker_context
 mkdir -p executables
 
+docker build --release
+
 #build the instructor binaries
 git clone https://github.com/replicatedu/replicatedu_instructor.git
 cd replicatedu_instructor
