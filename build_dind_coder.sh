@@ -1,11 +1,11 @@
 # Stop all containers 
-docker stop $(docker ps -a -q)
+#docker stop $(docker ps -a -q)
 # Delete all containers
-docker rm $(docker ps -a -q)
+#docker rm $(docker ps -a -q)
 # Delete all images
-docker rmi -f $(docker images -q)
+#docker rmi -f $(docker images -q)
 #prune the volumes
-docker system prune -f --volumes
+#docker system prune -f --volumes
 
 
 rm -rf docker_context
