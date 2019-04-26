@@ -11,7 +11,7 @@ path = "src/main.rs"
 [[bin]]
 name = "client"
 path = "src/client.rs"
-docker_wrapper = { git = https://github.com/replicatedu/docker_wrapper.git }
+docker_wrapper = { git = "https://github.com/replicatedu/docker_wrapper.git" }
 
 [dependencies]
 crossterm = "*"
