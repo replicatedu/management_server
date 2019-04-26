@@ -6,7 +6,7 @@ use crossterm::{terminal,ClearType};
 
 fn main() {
     let mut terminal = terminal();
-    match TcpStream::connect("127.0.0.1:8080") {
+    match TcpStream::connect("0.0.0.0:8080") {
         Ok(mut stream) => {
             println!("Successfully connected to server in port 8080");
 
