@@ -5,6 +5,7 @@ use std::{thread, time};
 extern crate rand;
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
+use docker_wrapper;
 
 mod command;
 const MAX_USERS: i32 = 10;
@@ -25,7 +26,7 @@ fn docker_reaper(counter: Arc<Mutex<i32>>){
 }
 
 
-fn handle_client(mut stream: TcpStream, port: u32, counter: Arc<Mutex<i32>>) {
+fn handle_client(mut stream: TcpStream, port: i32, counter: Arc<Mutex<i32>>) {
     let rand_string: String = thread_rng().sample_iter(&Alphanumeric).take(30).collect();
     let rand_path: String = thread_rng().sample_iter(&Alphanumeric).take(30).collect();
 
@@ -72,6 +73,7 @@ fn handle_client(mut stream: TcpStream, port: u32, counter: Arc<Mutex<i32>>) {
         {
             let mut counter_inc = counter.lock().unwrap();
             let mut status: String = "".to_owned();
+            docker_wrapper::docker_run_new_test_instance(&rand_string,port);
             status.push_str(&format!(
                 "ip:{} password {} ,current sessions {}/{}: seconds left: {}",
                 //&ip,
@@ -87,6 +89,7 @@ fn handle_client(mut stream: TcpStream, port: u32, counter: Arc<Mutex<i32>>) {
         timer-=1;
     }
     stream.write(b"timeout!");
+    docker_wrapper::docker_kill(port);
 }
 
 fn handle_error(mut stream: TcpStream, counter: Arc<Mutex<i32>>) {

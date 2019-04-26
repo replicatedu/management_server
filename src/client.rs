@@ -9,7 +9,7 @@ fn main() {
     match TcpStream::connect("172.17.0.1:8080") {
         Ok(mut stream) => {
             println!("Successfully connected to server in port 8080");
-
+            println!("please wait for up to 2 minutes while your environment is being built");
             let msg = b"update";
             loop{
 
