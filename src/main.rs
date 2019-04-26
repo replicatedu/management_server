@@ -30,7 +30,7 @@ fn handle_client(mut stream: TcpStream, port: u32, counter: Arc<Mutex<i32>>) {
     let rand_path: String = thread_rng().sample_iter(&Alphanumeric).take(30).collect();
 
 
-    let ip: ::std::net::IpAddr = my_public_ip::resolve().unwrap();
+    //let ip: ::std::net::IpAddr = my_public_ip::resolve().unwrap();
 
     println!("{}", &rand_string);
     dbg!(command::get_output(&rand_string,&rand_path));
@@ -73,8 +73,8 @@ fn handle_client(mut stream: TcpStream, port: u32, counter: Arc<Mutex<i32>>) {
             let mut counter_inc = counter.lock().unwrap();
             let mut status: String = "".to_owned();
             status.push_str(&format!(
-                "{}:{} password {} ,current sessions {}/{}: seconds left: {}",
-                &ip,
+                "ip:{} password {} ,current sessions {}/{}: seconds left: {}",
+                //&ip,
                 port,
                 rand_string,
                 (*counter_inc).to_string(),

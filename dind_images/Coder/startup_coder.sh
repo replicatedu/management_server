@@ -1,1 +1,0 @@
-code-server --password $CODER_PASSWORD

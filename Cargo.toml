@@ -13,12 +13,8 @@ name = "client"
 path = "src/client.rs"
 
 [dependencies]
-futures = "0.1"
-tokio = "0.1"
-websocket = "0.22.0"
 crossterm = "*"
 rand = "*"
-my_public_ip = "0.1.0"
 
 [profile.release]
 opt-level = 'z'     # Optimize for size.
