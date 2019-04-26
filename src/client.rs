@@ -19,7 +19,7 @@ fn main() {
                     match stream.read(&mut data) {
 
                         Ok(size) => {
-                            terminal.clear(ClearType::All);
+                            //terminal.clear(ClearType::All);
                             println!("{:}",str::from_utf8(&data[0..size]).expect("error "));
                         },
                         Err(e) => {

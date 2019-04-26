@@ -13,7 +13,7 @@ const TIMEOUT: i32 = 30*60;
 
 //fail safe to preent against some bad states
 fn docker_reaper(counter: Arc<Mutex<i32>>){
-    let thirty_seconds = time::Duration::from_secs(2);
+    let thirty_seconds = time::Duration::from_secs(10);
     loop{
         {
             let mut counter_inc = counter.lock().unwrap();
