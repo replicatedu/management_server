@@ -14,5 +14,5 @@ cargo clean
 # Build the image 
 docker build . -t dind_base
 
-docker run --privileged -e CODER_PASSWORD="password" -p 8111:8443 --name dind1 -d dind_base
-docker exec -i -t dind1 /bin/ash -c ./start_dind.sh
+#docker run --privileged -e CODER_PASSWORD="password" -p 8111:8443 --name dind1 -d dind_base
+#docker exec -i -t dind1 /bin/ash -c ./start_dind.sh
